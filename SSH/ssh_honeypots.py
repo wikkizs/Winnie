@@ -3,14 +3,14 @@ import threading
  
 from Utils import server
 
-addresse_ip = "192.168.1.26"
+addresse_ip = "10.49.122.43"
 port = 22
 server_key = paramiko.RSAKey.from_private_key_file('ssh_key')
 
 class SSHServer (paramiko.ServerInterface) : 
 
     def check_auth_password(self, username: str, password: str) -> int:
-        print(f"{username}:{password}")
+        print(f"Nom de l'utilisateur = {username}\nMot de passe = {password}")
         return paramiko.AUTH_FAILED
 
 def ssh_connection (client_socket) : 
