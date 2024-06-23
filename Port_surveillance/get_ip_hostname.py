@@ -6,7 +6,7 @@ adresse_serveur = '0.0.0.0'
 port = 100
 filename = "ip_hostname.txt"
 
-addresse_serveur_envoie = "192.168.194.135"
+addresse_serveur_envoie = "20.199.78.243"
 port_envoie = 8080
 
 def send_message(message) :
