@@ -2,11 +2,6 @@ import os
 import subprocess
 import platform
 
-"""
-Le programme Key_gen.py m'a été fourni par un camarade de classe. 
-Je n'ai pas modifié le programme fournie.
-"""
-
 
 class SSLKeyGenerator:
     def __init__(self):

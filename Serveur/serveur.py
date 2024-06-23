@@ -3,7 +3,7 @@ from Utils import gestion_fichier , connection
 
 # Adresse du serveur
 # Mettre l'adresse de votre serveur
-adresse_serveur = '192.168.194.135' 
+adresse_serveur = '0.0.0.0' 
 port = 8080  
 MAX_RECV = 4096 
 
