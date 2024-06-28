@@ -1,5 +1,5 @@
 import threading
-from Utils import server
+from Utils import server, date
 
 
 adresse_serveur = '0.0.0.0'
@@ -19,8 +19,8 @@ def tcp_connexion(server_socket) :
     
     while 1 : 
         client_socket , client_ip , client_hostname = server.accept_connexion(server_socket)
-        print(f"{client_hostname} essaye de se connecter avec l'adresse IP {client_ip} sur le port {port}.")
-        info_connexion = f"[TCP,{client_hostname},{client_ip},{port}]"
+        jour, heure = date.get_current_time()
+        info_connexion = f"[TCP,{jour},{heure},{client_hostname},{client_ip},{port}]"
         client_socket.close()
         send_message(info_connexion)
         
