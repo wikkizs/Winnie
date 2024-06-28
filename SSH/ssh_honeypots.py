@@ -1,7 +1,7 @@
 import paramiko
-import threading 
+import threading
  
-from Utils import server
+from Utils import server, date
 
 addresse_ip = "0.0.0.0"
 port = 2222
@@ -16,7 +16,8 @@ class SSHServer (paramiko.ServerInterface) :
         self.client_ip = client_ip
 
     def check_auth_password(self, username: str, password: str) -> int:
-        info_connexion = f"[SSH,{self.client_hostname},{self.client_ip},{password}]"
+        jour, heure = date.get_current_time()
+        info_connexion = f"[SSH,{jour},{heure},{self.client_hostname},{self.client_ip},{password}]"
         send_message(info_connexion)
         return paramiko.AUTH_FAILED
 
