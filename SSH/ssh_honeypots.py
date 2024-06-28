@@ -18,6 +18,7 @@ class SSHServer (paramiko.ServerInterface) :
     def check_auth_password(self, username: str, password: str) -> int:
         jour, heure = date.get_current_time()
         info_connexion = f"[SSH,{jour},{heure},{self.client_hostname},{self.client_ip},{password}]"
+        info_connexion = f"[SSH,{self.client_hostname},{self.client_ip},{password}]"
         send_message(info_connexion)
         return paramiko.AUTH_FAILED
 
