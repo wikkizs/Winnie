@@ -55,12 +55,9 @@ def execute_query(connection, query, data=None) :
 
 
 def add_data(connection,data) :
-    print(data)
     data = data.decode()
-    print(data)
     data = data.strip("[]")
     data_list = data.split(',')
-    print(data_list)
     
     if data_list[0] == "TCP":
         
