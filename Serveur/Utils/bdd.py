@@ -2,13 +2,13 @@ import mysql.connector
 from mysql.connector import Error
 from datetime import datetime
 
-
+# Remplacer les valeurs suivantes par les informations de votre base de données
 host_name = "localhost"
 user_name = "honeypots"
 user_password = "tcmbddhonneypot"
 db_name = "Honeypots"
 
-
+# Création des tables
 create_tcp_table = """
 CREATE TABLE IF NOT EXISTS TCP (
     Id INT AUTO_INCREMENT PRIMARY KEY,
@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS SSH (
 );
 """
 
+# Création de la connection avec la base de données
 def create_connection() :
     
     connection = mysql.connector.connect(
@@ -42,6 +43,7 @@ def create_connection() :
     
     return connection
 
+# Fonction qui exécute une requête dans la base de données liée à connection
 def execute_query(connection, query, data=None) :
     cursor = connection.cursor()
     try:
@@ -53,7 +55,7 @@ def execute_query(connection, query, data=None) :
     except Error as e :
         print(e)
 
-
+# Fonction qui transforme les données reçues et les insère dans la base de données
 def add_data(connection,data) :
     data = data.decode()
     data = data.strip("[]")
@@ -78,7 +80,7 @@ def add_data(connection,data) :
         execute_query(connection, insert_query, ssh_data)
         
     else:
-        print("Problème de données.")
+        print("Donnees non reconnues.")
 
 
 

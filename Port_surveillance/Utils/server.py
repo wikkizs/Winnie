@@ -57,7 +57,7 @@ def accept_connexion(server_socket) :
     # On récupère l'adresse de l'utilisateur qui c'est connecté
     client_ip = addr_info[0]
 
-    # On récupère le nom de sa machine
+    # On récupère le nom du client
     try : 
         client_hostname = socket.gethostbyaddr(client_ip)[0]
 
@@ -81,11 +81,11 @@ def creation_socket_ssl(addresse_serveur,port) :
     socket_client_ssl = context.wrap_socket(socket_client,server_hostname=addresse_serveur)
 
     return socket_client_ssl
-    
+
+# Fonction qui permet de se connecter avec une socket SSL 
 def connect(socket_client_ssl,addresse_serveur_envoie,port_envoie) : 
     while True :
         try :
-            print("3.1\n") 
             socket_client_ssl.connect((addresse_serveur_envoie,port_envoie))
             return socket_client_ssl
         except Exception as e : 

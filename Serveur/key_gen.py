@@ -12,7 +12,6 @@ class SSLKeyGenerator:
         self.Key = "SSL"
 
     def check_OpenSSL(self, os_type):
-        #print(os_type)
         if os_type == "Linux":
             try:
                 output = os.popen('openssl version').read()
@@ -45,7 +44,8 @@ class SSLKeyGenerator:
         return platform.system()
 
     def key_generation(self):
-        openssl_config_path = r'C:\xampp\apache\conf\openssl.cnf'  # replace with the pat to your openssl config
+        # replace with the pat to your openssl config
+        openssl_config_path = r'C:\xampp\apache\conf\openssl.cnf' 
         if not os.path.exists(self.Key):
             os.mkdir(self.Key)
             print(f"{self.orange} [✅] {self.Key} directory created")
@@ -80,8 +80,6 @@ class SSLKeyGenerator:
             try:
                 with open(f'{self.Key}/CERT/extfile.cnf.txt', 'w') as f:
                     input_ip = input("Enter server side IP : ")
-                    #hostname = socket.gethostname()
-                    #ip = socket.gethostbyname(hostname)
                     print(f"IP server socket = {input_ip}")
                     f.write(f'subjectAltName=IP:{input_ip}\n')
                 print(f"{self.orange} [✅] extfile.cnf.txt generated")
