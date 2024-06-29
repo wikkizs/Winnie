@@ -85,7 +85,6 @@ def creation_socket_ssl(addresse_serveur,port) :
 def connect(socket_client_ssl,addresse_serveur_envoie,port_envoie) : 
     while True :
         try :
-            print("3.1\n") 
             socket_client_ssl.connect((addresse_serveur_envoie,port_envoie))
             return socket_client_ssl
         except Exception as e : 

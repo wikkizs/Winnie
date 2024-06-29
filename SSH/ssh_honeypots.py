@@ -11,6 +11,7 @@ addresse_serveur_envoie = "20.199.78.243"
 port_envoie = 8080
 
 class SSHServer (paramiko.ServerInterface) : 
+    # TODO : _init_ surement inutile
     def __init__(self, client_hostname, client_ip):
         self.client_hostname = client_hostname
         self.client_ip = client_ip
@@ -18,7 +19,6 @@ class SSHServer (paramiko.ServerInterface) :
     def check_auth_password(self, username: str, password: str) -> int:
         jour, heure = date.get_current_time()
         info_connexion = f"[SSH,{jour},{heure},{self.client_hostname},{self.client_ip},{password}]"
-        info_connexion = f"[SSH,{self.client_hostname},{self.client_ip},{password}]"
         send_message(info_connexion)
         return paramiko.AUTH_FAILED
 

@@ -1,3 +1,6 @@
 SSH/ssh_key
 SSH/ssh_key.pub
 Serveur/SSL
+Serveur/fichier_recu
+SSH/Utils/__pycache__
+Port_surveillance/Utils/__pycache__
