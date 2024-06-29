@@ -81,9 +81,3 @@ def add_data(connection,data) :
         
     else:
         print("Donnees non reconnues.")
-
-
-
-
-
-
