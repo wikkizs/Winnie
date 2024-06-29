@@ -1,4 +1,4 @@
-from Utils import gestion_fichier , connection
+from Utils import gestion_fichier , connection, bdd
 
 
 # Adresse du serveur
@@ -18,7 +18,9 @@ def main() :
 
         if socket_client is not None :
             contenu = connection.reception_contenu(socket_client)
-            gestion_fichier.print_file(addr_client,contenu)
+            print(contenu)
+            connection_db = bdd.create_connection()
+            bdd.add_data(connection_db, contenu)
             socket_serveur_ssl.close()
             socket_client.close()
         else : 
